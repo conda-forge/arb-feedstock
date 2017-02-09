@@ -1,4 +1,4 @@
-{% set version = "2.8.1" %}
+{% set version = "2.9.0" %}
 
 package:
   name: arb
@@ -7,7 +7,7 @@ package:
 source:
   fn: {{ version }}.tar.gz
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
-  sha256: f4f4ec2d59b348c5e89eaf0b33734bce83a2ef85ab4748b24b984d07f5651012
+  sha256: 98f6f543e41e5dcb62cc6204d607fefa88317388c54c2a8edb9e601f7d243142
 
 build:
   number: 0
@@ -34,7 +34,7 @@ test:
 about:
   home: http://arblib.org
   license: GPL v2+
-  license_file: gpl-2.0.txt
+  license_file: LICENSE
   summary: 'A C library for arbitrary-precision interval arithmetic'
 
 extra:

@@ -10,18 +10,18 @@ source:
   sha256: 98f6f543e41e5dcb62cc6204d607fefa88317388c54c2a8edb9e601f7d243142
 
 build:
-  number: 0
+  number: 1
   skip: true        # [win]
 
 requirements:
   build:
     - toolchain
-    - gmp
-    - mpfr
+    - gmp >=5.0.1,<7
+    - mpfr 3.*
     - libflint
   run:
-    - gmp
-    - mpfr
+    - gmp >=5.0.1,<7
+    - mpfr 3.*
     - libflint
 
 test:

@@ -18,11 +18,11 @@ requirements:
     - toolchain
     - gmp >=5.0.1,<7
     - mpfr 3.*
-    - libflint
+    - libflint 2.5.*
   run:
     - gmp >=5.0.1,<7
     - mpfr 3.*
-    - libflint
+    - libflint 2.5.*
 
 test:
   commands:

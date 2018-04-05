@@ -1,0 +1,37 @@
+From 1288a174e31e2efd550f62351036c499ed72c61c Mon Sep 17 00:00:00 2001
+From: fredrik <fredrik.johansson@gmail.com>
+Date: Sat, 3 Mar 2018 11:21:55 +0100
+Subject: [PATCH] avoid calling nmod_init with modulus 0 (division by zero) in
+ DFT precomp functions
+
+---
+ acb_dft/bluestein.c | 2 +-
+ acb_dft/crt.c       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/acb_dft/bluestein.c b/acb_dft/bluestein.c
+index 73c8ffe6..37e2883d 100644
+--- a/acb_dft/bluestein.c
++++ b/acb_dft/bluestein.c
+@@ -27,7 +27,7 @@ _acb_vec_bluestein_factors(acb_ptr z, slong n, slong prec)
+ 
+         z2n = _acb_vec_init(2 * n);
+         _acb_vec_unit_roots(z2n, -2 * n, 2 * n, prec);
+-        nmod_init(&n2, 2 * n);
++        nmod_init(&n2, FLINT_MAX(2 * n, 1));
+ 
+         for (k = 0, k2 = 0; k < n; k++)
+         {
+diff --git a/acb_dft/crt.c b/acb_dft/crt.c
+index 07283fe3..262e054f 100644
+--- a/acb_dft/crt.c
++++ b/acb_dft/crt.c
+@@ -23,7 +23,7 @@ crt_init(crt_t c, ulong n)
+     else
+         fac.num = 0;
+ 
+-    nmod_init(&c->n, n);
++    nmod_init(&c->n, FLINT_MAX(n, 1));
+ 
+     c->num = fac.num;
+     for (k = 0; k < fac.num; k++)

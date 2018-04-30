@@ -13,18 +13,18 @@ source:
     - 1288a174e31e2efd550f62351036c499ed72c61c.patch
 
 build:
-  number: 0
+  number: 1
   skip: true        # [win]
 
 requirements:
   build:
     - toolchain
     - gmp >=5.0.1,<7
-    - mpfr 3.*
+    - mpfr 4.*
     - libflint 2.5.*
   run:
     - gmp >=5.0.1,<7
-    - mpfr 3.*
+    - mpfr 4.*
     - libflint 2.5.*
 
 test:
@@ -43,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - isuruf
+    - saraedum

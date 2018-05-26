@@ -18,14 +18,15 @@ build:
 
 requirements:
   build:
-    - toolchain
-    - gmp >=5.0.1,<7
-    - mpfr 4.*
-    - libflint 2.5.*
+    - {{ compiler('c') }}
+  host:
+    - gmp
+    - mpfr
+    - libflint
   run:
-    - gmp >=5.0.1,<7
-    - mpfr 4.*
-    - libflint 2.5.*
+    - gmp
+    - mpfr
+    - libflint
 
 test:
   commands:

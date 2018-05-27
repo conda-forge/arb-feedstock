@@ -13,19 +13,22 @@ source:
     - 1288a174e31e2efd550f62351036c499ed72c61c.patch
 
 build:
-  number: 0
+  number: 1
   skip: true        # [win]
+  run_exports:
+    - {{ pin_subpackage('arb', max_pin='x.x') }}
 
 requirements:
   build:
-    - toolchain
-    - gmp >=5.0.1,<7
-    - mpfr 3.*
-    - libflint 2.5.*
+    - {{ compiler('c') }}
+  host:
+    - gmp
+    - mpfr
+    - libflint
   run:
-    - gmp >=5.0.1,<7
-    - mpfr 3.*
-    - libflint 2.5.*
+    - gmp
+    - mpfr
+    - libflint
 
 test:
   commands:
@@ -43,3 +46,4 @@ about:
 extra:
   recipe-maintainers:
     - isuruf
+    - saraedum

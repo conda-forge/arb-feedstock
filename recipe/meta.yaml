@@ -8,6 +8,9 @@ source:
   fn: {{ version }}.tar.gz
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
   sha256: 346af6a69118ebc6535c24b1d31055d315bab026dd24059c262a5fbcfaec6748
+  patches:
+    # https://github.com/fredrik-johansson/arb/issues/209
+    - 1288a174e31e2efd550f62351036c499ed72c61c.patch
 
 build:
   number: 0

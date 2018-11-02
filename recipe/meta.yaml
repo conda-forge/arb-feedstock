@@ -25,8 +25,7 @@ requirements:
   run:
     - gmp
     - mpfr
-    - {{ pin_compatible("libflint") }}
-
+    - libflint
 test:
   commands:
     - test -f $PREFIX/include/arb.h

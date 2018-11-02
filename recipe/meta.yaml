@@ -8,9 +8,6 @@ source:
   fn: {{ version }}.tar.gz
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
   sha256: cb4a0cee3da56492ef3bf110fa0a1df60c58384bfcd52dd7ea7ac3d8472e21bd
-  patches:
-    # https://github.com/fredrik-johansson/arb/issues/209
-    - 1288a174e31e2efd550f62351036c499ed72c61c.patch
 
 build:
   number: 0
@@ -28,7 +25,7 @@ requirements:
   run:
     - gmp
     - mpfr
-    - libflint
+    - {{ pin_compatible("libflint") }}
 
 test:
   commands:

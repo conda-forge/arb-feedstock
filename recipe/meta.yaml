@@ -1,4 +1,4 @@
-{% set version = "2.13.0" %}
+{% set version = "2.15.1" %}
 
 package:
   name: arb
@@ -7,13 +7,10 @@ package:
 source:
   fn: {{ version }}.tar.gz
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
-  sha256: d075116d094bfda96f9c4ce10bb9bf23b333a8246f48c532427168d0f91b7788
-  patches:
-    # https://github.com/fredrik-johansson/arb/issues/209
-    - 1288a174e31e2efd550f62351036c499ed72c61c.patch
+  sha256: cb4a0cee3da56492ef3bf110fa0a1df60c58384bfcd52dd7ea7ac3d8472e21bd
 
 build:
-  number: 1
+  number: 0
   skip: true        # [win]
   run_exports:
     - {{ pin_subpackage('arb', max_pin='x.x') }}
@@ -29,7 +26,6 @@ requirements:
     - gmp
     - mpfr
     - libflint
-
 test:
   commands:
     - test -f $PREFIX/include/arb.h

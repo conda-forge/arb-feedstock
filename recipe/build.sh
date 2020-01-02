@@ -9,7 +9,7 @@ export ARB_TEST_MULTIPLIER=0.1;
 # CFLAGS are not appended
 export CFLAGS="$CFLAGS -funroll-loops -g"
 
-sed -i.bak 's/$(LIBS)/$(LIBS) $(LDFLAGS)/g' Makefile.subdirsU
+sed -i.bak 's/$(LIBS)/$(LDFLAGS) $(LIBS)/g' Makefile.subdirs
 
 ./configure --prefix=$PREFIX --with-gmp=$PREFIX --with-mpfr=$PREFIX --with-flint=$PREFIX
 make -j${CPU_COUNT}

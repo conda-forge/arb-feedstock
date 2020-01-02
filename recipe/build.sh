@@ -13,7 +13,7 @@ export CFLAGS="$CFLAGS -funroll-loops -g"
 make -j${CPU_COUNT}
 make install
 
-if [[ "$target_platform" == "osx-64" ]]l then
+if [[ "$target_platform" == "osx-64" ]]; then
   make check AT= QUIET_CC= QUIET_CXX= QUIET_AR=
 else
   make check

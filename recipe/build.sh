@@ -6,7 +6,17 @@ chmod +x configure
 # tests to completion without timeouts.
 export ARB_TEST_MULTIPLIER=0.1;
 
+# CFLAGS are not appended
+export CFLAGS="$CFLAGS -funroll-loops -g"
+
+sed -i.bak 's/$(LIBS)/$(LDFLAGS) $(LIBS)/g' Makefile.subdirs
+
 ./configure --prefix=$PREFIX --with-gmp=$PREFIX --with-mpfr=$PREFIX --with-flint=$PREFIX
-make
-make check
+make -j${CPU_COUNT}
 make install
+
+if [[ "$target_platform" == "osx-64" ]]; then
+  make check AT= QUIET_CC= QUIET_CXX= QUIET_AR=
+else
+  make check
+fi

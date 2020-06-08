@@ -36,7 +36,7 @@ test:
     - test -f $PREFIX/include/arb.h                     # [unix]
     - if not exist %LIBRARY_INC%\arb.h exit 1           # [win]
     - if not exist %LIBRARY_LIB%\arb.lib exit 1         # [win]
-    - if not exist %LIBRARY_BIN%\arb.dll exit 1         # [win]
+    - if not exist %LIBRARY_BIN%\arb-2.dll exit 1         # [win]
     - test -f $PREFIX/lib/libarb.so         # [linux]
     - test -f $PREFIX/lib/libarb.dylib      # [osx]
 

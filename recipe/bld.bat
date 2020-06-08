@@ -3,6 +3,7 @@ REM tests to completion without timeouts
 
 set ARB_TEST_MULTIPLIER=0.1
 
+del CMakeLists.txt
 copy %SRC_DIR%/CMakeLists.txt CMakeLists.txt
 
 mkdir build
@@ -15,6 +16,7 @@ cmake ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
   -DCMAKE_BUILD_TYPE=Release ^
   -DBUILD_SHARED_LIBS=ON ^
+  --debug-find ^
   ..
 
 ninja -j%CPU_COUNT%

@@ -5,38 +5,44 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ version }}.tar.gz
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
   sha256: 145a7a8e0e449b8a30de68c75c10b146c4f199544262711bef6fb49d3012d6e1
+  patches:
+    - flint26.patch
 
 build:
-  number: 0
-  skip: true        # [win]
+  number: 1
+  skip: True  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('arb', max_pin='x.x') }}
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - make      # [unix]
+    - cmake     # [win]
+    - ninja     # [win]
   host:
-    - gmp
+    - gmp       # [unix]
+    - mpir      # [win]
     - mpfr
     - libflint
+    - pthreads-win32    # [win]
   run:
-    - gmp
-    - mpfr
-    - libflint
+    - pthreads-win32    # [win]
+
 test:
   commands:
-    - test -f $PREFIX/include/arb.h
-    - test -f $PREFIX/lib/libarb.a
+    - test -f $PREFIX/include/arb.h                     # [unix]
+    - if not exist %LIBRARY_INC%\arb.h exit 1           # [win]
+    - if not exist %LIBRARY_LIB%\arb.lib exit 1         # [win]
+    - if not exist %LIBRARY_BIN%\arb-2.dll exit 1         # [win]
     - test -f $PREFIX/lib/libarb.so         # [linux]
     - test -f $PREFIX/lib/libarb.dylib      # [osx]
 
 about:
   home: http://arblib.org
-  license: GPL v2+
+  license: LGPL-2.1-or-later
   license_file: LICENSE
   summary: 'A C library for arbitrary-precision interval arithmetic'
 

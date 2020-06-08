@@ -3,7 +3,7 @@ REM tests to completion without timeouts
 
 set ARB_TEST_MULTIPLIER=0.1
 
-cp %SRC_DIR%/CMakeLists.txt CMakeLists.txt
+copy %SRC_DIR%/CMakeLists.txt CMakeLists.txt
 
 mkdir build
 cd build

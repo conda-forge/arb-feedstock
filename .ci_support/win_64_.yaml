@@ -4,12 +4,12 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
-libflint:
-- '2.6'
 mpfr:
 - '4'
 pin_run_as_build:
   mpfr:
     max_pin: x
+target_platform:
+- win-64
 vc:
 - '14'

@@ -11,8 +11,25 @@ export CFLAGS="$CFLAGS -funroll-loops -g"
 
 sed -i.bak 's/$(LIBS)/$(LDFLAGS) $(LIBS)/g' Makefile.subdirs
 
-./configure --prefix=$PREFIX --with-gmp=$PREFIX --with-mpfr=$PREFIX --with-flint=$PREFIX --disable-static
+if [[ "$target_platform" == *-64 ]]; then
+  export ARCH="x86_64"
+fi
+if [[ "$target_platform" == linux-* ]]; then
+  export FLINT_BUILD="$ARCH-Linux"
+elif [[ "$target_platform" == osx-* ]]; then
+  export FLINT_BUILD="$ARCH-Darwin"
+fi
+
+./configure \
+  --prefix=$PREFIX \
+  --with-gmp=$PREFIX \
+  --with-mpfr=$PREFIX \
+  --with-flint=$PREFIX \
+  --disable-static \
+  --build=$FLINT_BUILD
 make -j${CPU_COUNT}
 make install
 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make check
+fi

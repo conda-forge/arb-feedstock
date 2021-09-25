@@ -1,4 +1,4 @@
-{% set version = "2.20.0" %}
+{% set version = "2.21.0" %}
 
 package:
   name: arb
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
-  sha256: d2f186b10590c622c11d1ca190c01c3da08bac9bc04e84cb591534b917faffe7
+  sha256: 6493ebcfb1772458db4ca66da4c5536968484a3815cf75d2bb33c600b4471910
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('arb', max_pin='x.x') }}

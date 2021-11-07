@@ -24,7 +24,7 @@ requirements:
     - gmp       # [unix]
     - mpir      # [win]
     - mpfr
-    - libflint >=2.7
+    - libflint
     - pthreads-win32    # [win]
   run:
     - pthreads-win32    # [win]

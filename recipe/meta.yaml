@@ -9,7 +9,7 @@ source:
   sha256: d2f186b10590c622c11d1ca190c01c3da08bac9bc04e84cb591534b917faffe7
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage('arb', max_pin='x.x') }}
@@ -24,7 +24,7 @@ requirements:
     - gmp       # [unix]
     - mpir      # [win]
     - mpfr
-    - libflint >=2.7
+    - libflint
     - pthreads-win32    # [win]
   run:
     - pthreads-win32    # [win]

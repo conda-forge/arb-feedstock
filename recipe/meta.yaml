@@ -1,4 +1,4 @@
-{% set version = "2.21.1" %}
+{% set version = "2.22.0" %}
 
 package:
   name: arb
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/fredrik-johansson/arb/archive/{{ version }}.tar.gz
-  sha256: aecc9f55eb35a00a2490e9a7536a0babf8ac86bb13d32a4a95e1216f9f5cbfa8
+  sha256: 3e40ab8cf61c0cd63d5901064d73eaa2d04727bbdc6eebb1727997958a14f24d
 
 build:
   number: 0

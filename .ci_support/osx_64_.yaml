@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,7 +11,7 @@ channel_targets:
 gmp:
 - '6'
 libflint:
-- '2.8'
+- '2.9'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpfr:

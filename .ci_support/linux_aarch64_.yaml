@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '12'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -17,13 +17,8 @@ docker_image:
 gmp:
 - '6'
 libflint:
-- '2.9'
+- '3.0'
 mpfr:
 - '4'
-pin_run_as_build:
-  gmp:
-    max_pin: x
-  mpfr:
-    max_pin: x
 target_platform:
 - linux-aarch64

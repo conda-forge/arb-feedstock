@@ -1,25 +1,24 @@
+arb:
+- '2.23'
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
-cdt_name:
-- cos6
+- '14'
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 gmp:
 - '6'
 libflint:
-- '2.9'
+- '3.5'
 mpfr:
 - '4'
-pin_run_as_build:
-  gmp:
-    max_pin: x
-  mpfr:
-    max_pin: x
 target_platform:
 - linux-64
